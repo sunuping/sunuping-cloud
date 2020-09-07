@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: service-api-auth
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c25c1de5-d9d6-44d1-87ea-f39627cf69e4
+        shared-dataids: common.yaml,multipart.yaml
+        refreshable-dataids: common.yaml,multipart.yaml
+        file-extension: yaml
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c25c1de5-d9d6-44d1-87ea-f39627cf69e4
+
+server:
+  port: 8001
+  servlet:
+    session:
+      cookie:
+        name: AUTHSESSION
+
+logging:
+  level:
+    root: info
+    web: debug
+    com.sunuping.mapper: debug
+    com.sunuping: debug
+  file:
+    name: auth.log

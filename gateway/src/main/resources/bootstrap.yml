@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c25c1de5-d9d6-44d1-87ea-f39627cf69e4
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c25c1de5-d9d6-44d1-87ea-f39627cf69e4
+        shared-dataids: common.yaml,redis.yaml
+        refreshable-dataids: common.yaml,redis.yaml
+        file-extension: yaml
+    gateway:
+      discovery:
+        locator:
+          #open service id get register addr
+          enabled: true
+          lower-case-service-id: true
+          filters:
+            - name: Retry
+              args:
+                retries: 3
+                series:
+                  - SERVER_ERROR
+                statuses:
+                  - OK
+                methods:
+                  - GET
+                  - POST
+                exceptions:
+                  - java.io.IOException
+      routes:
+        - id: preferred-service-auth-api
+          uri: lb://preferred-service-auth-api/
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/auth/**
+server:
+  port: 8700
+logging:
+  level:
+    root: info
+    web: debug
+    com.sunuping: debug
+  file:
+    name: gateway.log

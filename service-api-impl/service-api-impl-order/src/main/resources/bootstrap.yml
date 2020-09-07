@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: service-api-impl-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos地址
+      config:
+        server-addr: localhost:8848 #Nacos地址
+        file-extension: yaml #这里我们获取的yaml格式的配置
+        shared-dataids:
