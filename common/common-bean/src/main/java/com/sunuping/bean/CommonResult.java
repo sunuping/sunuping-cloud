@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class Result<T> implements Serializable {
+public class CommonResult<T> implements Serializable {
 
     public static int OK = 0;
     /**
@@ -59,12 +59,12 @@ public class Result<T> implements Serializable {
     private String info;
     private T data;
 
-    public static <T> Result<T> ok(T data) {
-        return new Result<T>().setData(data);
+    public static <T> CommonResult<T> ok(T data) {
+        return new CommonResult<T>().setData(data);
     }
 
-    public static <T> Result<T> fail() {
-        return new Result<T>().setCode(UNKNOWN_ERROR);
+    public static <T> CommonResult<T> fail() {
+        return new CommonResult<T>().setCode(UNKNOWN_ERROR);
     }
 
 }

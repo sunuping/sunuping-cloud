@@ -18,7 +18,7 @@ import java.util.Date;
  * </p>
  *
  * @author lime
- * @since 2020-09-07
+ * @since 2020-09-08
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -37,10 +37,7 @@ public class User implements Serializable {
     private String password;
 
     @ApiModelProperty(value = "头像")
-    private String avater;
-
-    @ApiModelProperty(value = "是否启用 默认启用 1 禁用0")
-    private Boolean isEnable;
+    private String headImage;
 
     @ApiModelProperty(value = "是否删除 默认0  删除1")
     private Boolean isDel;
@@ -50,6 +47,9 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "更新时间")
     private Date updateTime;
+
+    @ApiModelProperty(value = "是否启用 默认启用 1 禁用0")
+    private Boolean isEnabled;
 
 
 }

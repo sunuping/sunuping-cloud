@@ -1,7 +1,7 @@
 package com.sunuping.annotation.handler;
 
 import com.sunuping.annotation.ResponseResult;
-import com.sunuping.bean.Result;
+import com.sunuping.bean.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -30,6 +30,6 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass,
                                   ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        return Result.ok(body);
+        return CommonResult.ok(body);
     }
 }

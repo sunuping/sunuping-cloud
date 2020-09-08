@@ -16,7 +16,7 @@
         <module>common-annotation</module>
         <module>common-exception</module>
         <module>common-bean</module>
-        <module>common-security</module>
+        <module>common-config</module>
     </modules>
 
     <dependencies>

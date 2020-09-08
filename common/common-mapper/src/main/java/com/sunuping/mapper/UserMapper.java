@@ -9,7 +9,7 @@ import com.sunuping.model.User;
  * </p>
  *
  * @author lime
- * @since 2020-09-07
+ * @since 2020-09-08
  */
 public interface UserMapper extends BaseMapper<User> {
 
